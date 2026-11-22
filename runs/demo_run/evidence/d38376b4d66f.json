@@ -1,0 +1,10 @@
+{
+  "evidence_id": "d38376b4d66f",
+  "field": "model",
+  "listing_value": "MODEL-AAA",
+  "recall_value": "MODEL-AAA",
+  "comparison": "exact_canonical",
+  "evidence_quote": "Model: MODEL-AAA",
+  "page_url": "http://localhost:8001/product/L01",
+  "screenshot_path": ""
+}

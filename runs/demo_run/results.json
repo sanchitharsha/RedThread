@@ -1,0 +1,134 @@
+[
+  {
+    "listing_id": "6410442cac1c",
+    "recall_number": "PLACEHOLDER-RECALL-000",
+    "tier": "CONFIRMED",
+    "reasons": [
+      "ID_MODEL_EXACT",
+      "ID_GTIN_EXACT",
+      "BRAND_EQ",
+      "SCOPE_ALL_UNITS"
+    ],
+    "evidence": [
+      {
+        "evidence_id": "d38376b4d66f",
+        "field": "model",
+        "listing_value": "MODEL-AAA",
+        "recall_value": "MODEL-AAA",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Model: MODEL-AAA",
+        "page_url": "http://localhost:8001/product/L01",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "5c1f48314131",
+        "field": "gtin",
+        "listing_value": "0000000000000",
+        "recall_value": "0000000000000",
+        "comparison": "exact_canonical",
+        "evidence_quote": "GTIN: 0000000000000",
+        "page_url": "http://localhost:8001/product/L01",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "9740597fbca1",
+        "field": "brand",
+        "listing_value": "PLACEHOLDER-BRAND",
+        "recall_value": "PLACEHOLDER-BRAND",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Brand: PLACEHOLDER-BRAND",
+        "page_url": "http://localhost:8001/product/L01",
+        "screenshot_path": ""
+      }
+    ],
+    "explanation": "Stub match engine: tier=CONFIRMED, reasons=['ID_MODEL_EXACT', 'ID_GTIN_EXACT', 'BRAND_EQ', 'SCOPE_ALL_UNITS']"
+  },
+  {
+    "listing_id": "a3e4172a20f3",
+    "recall_number": "PLACEHOLDER-RECALL-000",
+    "tier": "CONFIRMED",
+    "reasons": [
+      "ID_MODEL_EXACT",
+      "ID_GTIN_EXACT",
+      "BRAND_EQ",
+      "SCOPE_ALL_UNITS"
+    ],
+    "evidence": [
+      {
+        "evidence_id": "6fead5dd0d7a",
+        "field": "model",
+        "listing_value": "MODEL-AAA",
+        "recall_value": "MODEL-AAA",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Model: MODEL-AAA",
+        "page_url": "http://localhost:8001/product/L02",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "fabe88983bb8",
+        "field": "gtin",
+        "listing_value": "0000000000000",
+        "recall_value": "0000000000000",
+        "comparison": "exact_canonical",
+        "evidence_quote": "GTIN: 0000000000000",
+        "page_url": "http://localhost:8001/product/L02",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "37d2f3c384ec",
+        "field": "brand",
+        "listing_value": "PLACEHOLDER-BRAND",
+        "recall_value": "PLACEHOLDER-BRAND",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Brand: PLACEHOLDER-BRAND",
+        "page_url": "http://localhost:8001/product/L02",
+        "screenshot_path": ""
+      }
+    ],
+    "explanation": "Stub match engine: tier=CONFIRMED, reasons=['ID_MODEL_EXACT', 'ID_GTIN_EXACT', 'BRAND_EQ', 'SCOPE_ALL_UNITS']"
+  },
+  {
+    "listing_id": "c1a88020b97c",
+    "recall_number": "PLACEHOLDER-RECALL-000",
+    "tier": "CONFIRMED",
+    "reasons": [
+      "ID_MODEL_EXACT",
+      "ID_GTIN_EXACT",
+      "BRAND_EQ",
+      "SCOPE_ALL_UNITS"
+    ],
+    "evidence": [
+      {
+        "evidence_id": "08cb12cbad1e",
+        "field": "model",
+        "listing_value": "MODEL-AAA",
+        "recall_value": "MODEL-AAA",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Model: MODEL-AAA",
+        "page_url": "http://localhost:8001/product/L03",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "0d9b1fe8db33",
+        "field": "gtin",
+        "listing_value": "0000000000000",
+        "recall_value": "0000000000000",
+        "comparison": "exact_canonical",
+        "evidence_quote": "GTIN: 0000000000000",
+        "page_url": "http://localhost:8001/product/L03",
+        "screenshot_path": ""
+      },
+      {
+        "evidence_id": "cf06cb82e2b0",
+        "field": "brand",
+        "listing_value": "PLACEHOLDER-BRAND",
+        "recall_value": "PLACEHOLDER-BRAND",
+        "comparison": "exact_canonical",
+        "evidence_quote": "Brand: PLACEHOLDER-BRAND",
+        "page_url": "http://localhost:8001/product/L03",
+        "screenshot_path": ""
+      }
+    ],
+    "explanation": "Stub match engine: tier=CONFIRMED, reasons=['ID_MODEL_EXACT', 'ID_GTIN_EXACT', 'BRAND_EQ', 'SCOPE_ALL_UNITS']"
+  }
+]

@@ -1,5 +1,5 @@
 .env
-runs/
+runs/*
 !runs/demo_run/
 node_modules/
 __pycache__/

@@ -1,0 +1,10 @@
+{
+  "evidence_id": "37d2f3c384ec",
+  "field": "brand",
+  "listing_value": "PLACEHOLDER-BRAND",
+  "recall_value": "PLACEHOLDER-BRAND",
+  "comparison": "exact_canonical",
+  "evidence_quote": "Brand: PLACEHOLDER-BRAND",
+  "page_url": "http://localhost:8001/product/L02",
+  "screenshot_path": ""
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://www.cpsc.gov/Recalls/PLACEHOLDER/PLACEHOLDER-RECALL-000",
+    "final_url": "https://www.cpsc.gov/Recalls/PLACEHOLDER/PLACEHOLDER-RECALL-000",
+    "title": "PLACEHOLDER Recall Notice Page",
+    "text": "PLACEHOLDER RECALL NOTICE. Brand: PLACEHOLDER-BRAND. Model: MODEL-AAA. GTIN: 0000000000000. Hazard: PLACEHOLDER hazard description. Remedy: PLACEHOLDER remedy description. Units: PLACEHOLDER units affected.",
+    "html_snippet": "",
+    "screenshot_path": "",
+    "captured_at": "2026-11-22T16:09:15.179942",
+    "source_tier": "A",
+    "blocked": false,
+    "error": ""
+  },
+  {
+    "url": "http://localhost:8001/product/L01",
+    "final_url": "http://localhost:8001/product/L01",
+    "title": "PLACEHOLDER Product L01",
+    "text": "PLACEHOLDER listing L01. Brand: PLACEHOLDER-BRAND. Model: MODEL-AAA. GTIN: 0000000000000. Price: $PLACEHOLDER.",
+    "html_snippet": "",
+    "screenshot_path": "",
+    "captured_at": "2026-11-22T16:09:15.181132",
+    "source_tier": "C",
+    "blocked": false,
+    "error": ""
+  },
+  {
+    "url": "http://localhost:8001/product/L02",
+    "final_url": "http://localhost:8001/product/L02",
+    "title": "PLACEHOLDER Product L02",
+    "text": "PLACEHOLDER listing L02. Brand: PLACEHOLDER-BRAND. Model: MODEL-AAA. GTIN: 0000000000000. Price: $PLACEHOLDER.",
+    "html_snippet": "",
+    "screenshot_path": "",
+    "captured_at": "2026-11-22T16:09:15.181534",
+    "source_tier": "C",
+    "blocked": false,
+    "error": ""
+  },
+  {
+    "url": "http://localhost:8001/product/L03",
+    "final_url": "http://localhost:8001/product/L03",
+    "title": "PLACEHOLDER Product L03",
+    "text": "PLACEHOLDER listing L03. Brand: PLACEHOLDER-BRAND. Model: MODEL-AAA. GTIN: 0000000000000. Price: $PLACEHOLDER.",
+    "html_snippet": "",
+    "screenshot_path": "",
+    "captured_at": "2026-11-22T16:09:15.181866",
+    "source_tier": "C",
+    "blocked": false,
+    "error": ""
+  }
+]

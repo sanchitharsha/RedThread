@@ -1,0 +1,125 @@
+{
+  "nodes": [
+    {
+      "id": "recall-cpsc-placeholderrecall000",
+      "kind": "Recall",
+      "label": "CPSC PLACEHOLDER-RECALL-000",
+      "properties": {
+        "title": "PLACEHOLDER Recall Title — Not Real Data",
+        "brand": "PLACEHOLDER-BRAND",
+        "scope": "all_units"
+      }
+    },
+    {
+      "id": "pm-placeholderbrand-modelaaa",
+      "kind": "ProductModel",
+      "label": "PLACEHOLDER-BRAND MODEL-AAA",
+      "properties": {
+        "brand": "PLACEHOLDER-BRAND",
+        "model": "MODEL-AAA"
+      }
+    },
+    {
+      "id": "listing-http://localhost:8001/product/l01",
+      "kind": "Listing",
+      "label": "PLACEHOLDER Product L01",
+      "properties": {
+        "url": "http://localhost:8001/product/L01",
+        "variant": "",
+        "listing_id": "6410442cac1c"
+      }
+    },
+    {
+      "id": "listing-http://localhost:8001/product/l02",
+      "kind": "Listing",
+      "label": "PLACEHOLDER Product L02",
+      "properties": {
+        "url": "http://localhost:8001/product/L02",
+        "variant": "",
+        "listing_id": "a3e4172a20f3"
+      }
+    },
+    {
+      "id": "listing-http://localhost:8001/product/l03",
+      "kind": "Listing",
+      "label": "PLACEHOLDER Product L03",
+      "properties": {
+        "url": "http://localhost:8001/product/L03",
+        "variant": "",
+        "listing_id": "c1a88020b97c"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "covers-recall-cpsc-placeholderrecall000-pm-placeholderbrand-modelaaa",
+      "source": "recall-cpsc-placeholderrecall000",
+      "target": "pm-placeholderbrand-modelaaa",
+      "kind": "COVERS",
+      "properties": {},
+      "evidence_ids": [
+        "ev-recall-covers-model-aaa"
+      ]
+    },
+    {
+      "id": "matches-listing-http://localhost:8001/product/l01-recall-cpsc-placeholderrecall000",
+      "source": "listing-http://localhost:8001/product/l01",
+      "target": "recall-cpsc-placeholderrecall000",
+      "kind": "MATCHES",
+      "properties": {
+        "tier": "CONFIRMED",
+        "reasons": [
+          "ID_MODEL_EXACT",
+          "ID_GTIN_EXACT",
+          "BRAND_EQ",
+          "SCOPE_ALL_UNITS"
+        ]
+      },
+      "evidence_ids": [
+        "d38376b4d66f",
+        "5c1f48314131",
+        "9740597fbca1"
+      ]
+    },
+    {
+      "id": "matches-listing-http://localhost:8001/product/l02-recall-cpsc-placeholderrecall000",
+      "source": "listing-http://localhost:8001/product/l02",
+      "target": "recall-cpsc-placeholderrecall000",
+      "kind": "MATCHES",
+      "properties": {
+        "tier": "CONFIRMED",
+        "reasons": [
+          "ID_MODEL_EXACT",
+          "ID_GTIN_EXACT",
+          "BRAND_EQ",
+          "SCOPE_ALL_UNITS"
+        ]
+      },
+      "evidence_ids": [
+        "6fead5dd0d7a",
+        "fabe88983bb8",
+        "37d2f3c384ec"
+      ]
+    },
+    {
+      "id": "matches-listing-http://localhost:8001/product/l03-recall-cpsc-placeholderrecall000",
+      "source": "listing-http://localhost:8001/product/l03",
+      "target": "recall-cpsc-placeholderrecall000",
+      "kind": "MATCHES",
+      "properties": {
+        "tier": "CONFIRMED",
+        "reasons": [
+          "ID_MODEL_EXACT",
+          "ID_GTIN_EXACT",
+          "BRAND_EQ",
+          "SCOPE_ALL_UNITS"
+        ]
+      },
+      "evidence_ids": [
+        "08cb12cbad1e",
+        "0d9b1fe8db33",
+        "cf06cb82e2b0"
+      ]
+    }
+  ]
+}

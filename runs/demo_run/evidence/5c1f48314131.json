@@ -1,0 +1,10 @@
+{
+  "evidence_id": "5c1f48314131",
+  "field": "gtin",
+  "listing_value": "0000000000000",
+  "recall_value": "0000000000000",
+  "comparison": "exact_canonical",
+  "evidence_quote": "GTIN: 0000000000000",
+  "page_url": "http://localhost:8001/product/L01",
+  "screenshot_path": ""
+}

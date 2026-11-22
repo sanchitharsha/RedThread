@@ -1,0 +1,102 @@
+{
+  "run_id": "run-c798c738dae0",
+  "recall_number": "PLACEHOLDER-RECALL-000",
+  "recall_title": "PLACEHOLDER Recall Title — Not Real Data",
+  "mode": "live",
+  "tier_counts": {
+    "CONFIRMED": 3,
+    "LIKELY": 0,
+    "RELATED": 0,
+    "CONFLICT": 0,
+    "NO_MATCH": 0,
+    "UNRESOLVED": 0
+  },
+  "listings": [
+    {
+      "listing_id": "6410442cac1c",
+      "url": "http://localhost:8001/product/L01",
+      "title": "PLACEHOLDER Product L01",
+      "brand": "PLACEHOLDER-BRAND",
+      "model": "MODEL-AAA",
+      "best_tier": "CONFIRMED",
+      "reasons": [
+        "ID_MODEL_EXACT",
+        "ID_GTIN_EXACT",
+        "BRAND_EQ",
+        "SCOPE_ALL_UNITS"
+      ],
+      "evidence_ids": [
+        "d38376b4d66f",
+        "5c1f48314131",
+        "9740597fbca1"
+      ]
+    },
+    {
+      "listing_id": "a3e4172a20f3",
+      "url": "http://localhost:8001/product/L02",
+      "title": "PLACEHOLDER Product L02",
+      "brand": "PLACEHOLDER-BRAND",
+      "model": "MODEL-AAA",
+      "best_tier": "CONFIRMED",
+      "reasons": [
+        "ID_MODEL_EXACT",
+        "ID_GTIN_EXACT",
+        "BRAND_EQ",
+        "SCOPE_ALL_UNITS"
+      ],
+      "evidence_ids": [
+        "6fead5dd0d7a",
+        "fabe88983bb8",
+        "37d2f3c384ec"
+      ]
+    },
+    {
+      "listing_id": "c1a88020b97c",
+      "url": "http://localhost:8001/product/L03",
+      "title": "PLACEHOLDER Product L03",
+      "brand": "PLACEHOLDER-BRAND",
+      "model": "MODEL-AAA",
+      "best_tier": "CONFIRMED",
+      "reasons": [
+        "ID_MODEL_EXACT",
+        "ID_GTIN_EXACT",
+        "BRAND_EQ",
+        "SCOPE_ALL_UNITS"
+      ],
+      "evidence_ids": [
+        "08cb12cbad1e",
+        "0d9b1fe8db33",
+        "cf06cb82e2b0"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": [],
+  "coverage": [
+    {
+      "source": "CPSC",
+      "url": "https://www.cpsc.gov/Recalls/PLACEHOLDER/PLACEHOLDER-RECALL-000",
+      "checked_at": "2026-11-22T16:09:15.209296",
+      "status": "checked"
+    },
+    {
+      "source": "Health Canada",
+      "url": "",
+      "checked_at": null,
+      "status": "not_checked"
+    },
+    {
+      "source": "EU RAPEX",
+      "url": "",
+      "checked_at": null,
+      "status": "not_checked"
+    },
+    {
+      "source": "Other shops",
+      "url": "",
+      "checked_at": null,
+      "status": "not_checked"
+    }
+  ],
+  "disclaimer": "Redthread reports what was matched in the sources it checked. 'No match found in checked sources' is not a statement about product safety. Always follow the official notice and remedy."
+}

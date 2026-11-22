@@ -1,0 +1,10 @@
+{
+  "evidence_id": "cf06cb82e2b0",
+  "field": "brand",
+  "listing_value": "PLACEHOLDER-BRAND",
+  "recall_value": "PLACEHOLDER-BRAND",
+  "comparison": "exact_canonical",
+  "evidence_quote": "Brand: PLACEHOLDER-BRAND",
+  "page_url": "http://localhost:8001/product/L03",
+  "screenshot_path": ""
+}

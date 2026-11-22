@@ -1,0 +1,10 @@
+{
+  "evidence_id": "fabe88983bb8",
+  "field": "gtin",
+  "listing_value": "0000000000000",
+  "recall_value": "0000000000000",
+  "comparison": "exact_canonical",
+  "evidence_quote": "GTIN: 0000000000000",
+  "page_url": "http://localhost:8001/product/L02",
+  "screenshot_path": ""
+}
