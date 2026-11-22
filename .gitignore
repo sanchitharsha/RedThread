@@ -1,0 +1,15 @@
+.env
+runs/
+!runs/demo_run/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.db
+*.sqlite3

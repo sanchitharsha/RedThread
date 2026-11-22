@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    {"id": "recall-000", "kind": "Recall", "label": "PLACEHOLDER-RECALL-000", "properties": {"authority": "CPSC", "title": "PLACEHOLDER Recall Title", "brand": "PLACEHOLDER-BRAND", "scope": "all_units"}},
+    {"id": "pm-model-aaa", "kind": "ProductModel", "label": "PLACEHOLDER-BRAND MODEL-AAA", "properties": {"brand": "PLACEHOLDER-BRAND", "model": "MODEL-AAA"}},
+    {"id": "pm-model-aab", "kind": "ProductModel", "label": "PLACEHOLDER-BRAND MODEL-AAB", "properties": {"brand": "PLACEHOLDER-BRAND", "model": "MODEL-AAB"}},
+    {"id": "id-gtin-000", "kind": "Identifier", "label": "GTIN 0000000000000", "properties": {"type": "GTIN", "value": "0000000000000"}},
+    {"id": "listing-L01", "kind": "Listing", "label": "PLACEHOLDER Product L01", "properties": {"url": "http://localhost:8001/product/L01", "variant": ""}},
+    {"id": "listing-L02", "kind": "Listing", "label": "PLACEHOLDER Product L02", "properties": {"url": "http://localhost:8001/product/L02", "variant": ""}},
+    {"id": "listing-L05", "kind": "Listing", "label": "PLACEHOLDER Product L05", "properties": {"url": "http://localhost:8001/product/L05", "variant": ""}},
+    {"id": "listing-L07", "kind": "Listing", "label": "PLACEHOLDER Product L07", "properties": {"url": "http://localhost:8001/product/L07", "variant": ""}},
+    {"id": "listing-L09", "kind": "Listing", "label": "PLACEHOLDER Product L09", "properties": {"url": "http://localhost:8001/product/L09", "variant": ""}},
+    {"id": "listing-L10", "kind": "Listing", "label": "PLACEHOLDER Product L10", "properties": {"url": "http://localhost:8001/product/L10", "variant": ""}},
+    {"id": "seller-placeholder", "kind": "Seller", "label": "PLACEHOLDER Shop", "properties": {"domain": "localhost:8001"}}
+  ],
+  "edges": [
+    {"id": "edge-recall-pm-aaa",  "source": "recall-000",   "target": "pm-model-aaa",  "kind": "COVERS",         "properties": {}, "evidence_ids": ["ev-recall-covers-aaa"]},
+    {"id": "edge-pm-aaa-gtin",    "source": "pm-model-aaa", "target": "id-gtin-000",   "kind": "HAS_IDENTIFIER", "properties": {}, "evidence_ids": ["ev-pm-aaa-gtin"]},
+    {"id": "edge-L01-lists",      "source": "listing-L01",  "target": "pm-model-aaa",  "kind": "LISTS",          "properties": {}, "evidence_ids": ["ev-L01-lists"]},
+    {"id": "edge-L01-seller",     "source": "listing-L01",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L01-seller"]},
+    {"id": "edge-L01-match",      "source": "listing-L01",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "CONFIRMED", "reasons": ["ID_MODEL_EXACT", "ID_GTIN_EXACT", "BRAND_EQ", "SCOPE_ALL_UNITS"]}, "evidence_ids": ["ev-L01-model", "ev-L01-gtin"]},
+    {"id": "edge-L02-lists",      "source": "listing-L02",  "target": "pm-model-aaa",  "kind": "LISTS",          "properties": {}, "evidence_ids": ["ev-L02-lists"]},
+    {"id": "edge-L02-seller",     "source": "listing-L02",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L02-seller"]},
+    {"id": "edge-L02-match",      "source": "listing-L02",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "CONFIRMED", "reasons": ["ID_MODEL_EXACT", "BRAND_EQ", "SCOPE_ALL_UNITS"]}, "evidence_ids": ["ev-L02-model"]},
+    {"id": "edge-L05-lists",      "source": "listing-L05",  "target": "pm-model-aab",  "kind": "LISTS",          "properties": {}, "evidence_ids": ["ev-L05-lists"]},
+    {"id": "edge-L05-seller",     "source": "listing-L05",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L05-seller"]},
+    {"id": "edge-L05-match",      "source": "listing-L05",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "RELATED", "reasons": ["BRAND_EQ", "NAME_ONLY"]}, "evidence_ids": ["ev-L05-brand"]},
+    {"id": "edge-L05-related",    "source": "pm-model-aab", "target": "pm-model-aaa",  "kind": "RELATED_TO",     "properties": {"relationship": "sibling_model"}, "evidence_ids": ["ev-L05-sibling"]},
+    {"id": "edge-L07-seller",     "source": "listing-L07",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L07-seller"]},
+    {"id": "edge-L07-match",      "source": "listing-L07",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "RELATED", "reasons": ["ID_MODEL_EXACT", "BRAND_DIFF"]}, "evidence_ids": ["ev-L07-model"]},
+    {"id": "edge-L09-seller",     "source": "listing-L09",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L09-seller"]},
+    {"id": "edge-L09-match",      "source": "listing-L09",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "NO_MATCH", "reasons": []}, "evidence_ids": ["ev-L09-nomatch"]},
+    {"id": "edge-L10-seller",     "source": "listing-L10",  "target": "seller-placeholder", "kind": "SOLD_BY",   "properties": {}, "evidence_ids": ["ev-L10-seller"]},
+    {"id": "edge-L10-match",      "source": "listing-L10",  "target": "recall-000",    "kind": "MATCHES",        "properties": {"tier": "UNRESOLVED", "reasons": ["BLOCKED"]}, "evidence_ids": ["ev-L10-blocked"]}
+  ]
+}

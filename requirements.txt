@@ -1,0 +1,25 @@
+# Core
+pydantic==2.10.6
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+
+# Async HTTP (agent uses this)
+httpx==0.28.1
+aiohttp==3.11.13
+
+# SSE support
+sse-starlette==2.2.1
+
+# LLM SDKs
+google-genai==1.10.0
+openai==1.63.2
+
+# Browser automation (M1 uses this)
+playwright==1.50.0
+
+# Utilities
+python-dotenv==1.0.1
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.25.3
