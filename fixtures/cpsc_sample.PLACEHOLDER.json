@@ -1,0 +1,41 @@
+[
+  {
+    "RecallID": 99999,
+    "RecallNumber": "PLACEHOLDER-RECALL-000",
+    "RecallDate": "2026-01-01T00:00:00",
+    "Title": "PLACEHOLDER Widget Recall",
+    "Description": "This recall involves all units of the PLACEHOLDER widget. Model numbers: MODEL-AAA, MODEL-BBB.",
+    "URL": "https://www.cpsc.gov/Recalls/PLACEHOLDER",
+    "Products": [
+      {
+        "Name": "PLACEHOLDER Widget",
+        "Model": "MODEL-AAA, MODEL-BBB"
+      }
+    ],
+    "ProductUPCs": [
+      {
+        "UPC": "000000000017"
+      }
+    ],
+    "Hazards": [
+      {
+        "Name": "Fire hazard"
+      }
+    ],
+    "Remedies": [
+      {
+        "Name": "Refund"
+      }
+    ],
+    "Manufacturers": [
+      {
+        "Name": "PLACEHOLDER-BRAND"
+      }
+    ],
+    "Retailers": [
+      {
+        "Name": "PLACEHOLDER-STORE"
+      }
+    ]
+  }
+]

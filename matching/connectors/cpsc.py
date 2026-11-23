@@ -180,6 +180,9 @@ def _load_fixture(ref: str) -> tuple[RecallRecord, datetime]:
             rec = _pick(json.loads(p.read_text()), ref)
             if rec is None:
                 continue
+            if p.name == "cpsc_sample.json" and ref not in ("hero", "26419", ""):
+                if canon(str(_g(rec, "number", ""))) != canon(ref) and str(_g(rec, "id", "")) != ref:
+                    continue
             if "PLACEHOLDER" in p.name:
                 log.warning("=" * 70 + "\nUSING PLACEHOLDER RECALL DATA (%s). NOT A REAL RECALL.\n" + "=" * 70, p)
             elif canon(str(_g(rec, "number", ""))) != canon(ref):

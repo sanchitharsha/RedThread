@@ -13,7 +13,7 @@ install: ## Install Python + Node dependencies
 	@if [ -d frontend/package.json ]; then cd frontend && $(NPM) install; fi
 
 sandbox: ## Serve the sandbox shop on port 8001 (M4 builds this)
-	$(PYTHON) -m http.server 8001 --directory sandbox
+	$(PYTHON) -m http.server 8001 --directory sandbox/site
 
 backend: ## Start the FastAPI backend on port 8000
 	USE_STUBS=$(USE_STUBS) $(PYTHON) -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload

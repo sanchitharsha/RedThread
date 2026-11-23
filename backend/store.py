@@ -78,7 +78,8 @@ def load_events(run_id: str) -> list[Event]:
 def save_evidence(run_id: str, ev: Evidence) -> None:
     d = _run_dir(run_id) / "evidence"
     d.mkdir(exist_ok=True)
-    p = d / f"{ev.evidence_id}.json"
+    eid = ev.id or ev.evidence_id
+    p = d / f"{eid}.json"
     p.write_text(ev.model_dump_json(indent=2))
 
 

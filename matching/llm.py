@@ -217,6 +217,7 @@ class FakeLLM(_Base):
         super().__init__("fake")
         self.cache_enabled = False
         self.script = script
+        self._scripted_actions = actions is not None
         self.actions = list(actions or [])
         self.calls: list[tuple[str, str, str]] = []
 
@@ -236,7 +237,18 @@ class FakeLLM(_Base):
 
     async def choose_action(self, system, observation, history, tools) -> dict:
         self.calls.append(("choose_action", system, observation))
-        return self.actions.pop(0) if self.actions else _finish_action("fake llm: no scripted action")
+        if self._scripted_actions:
+            return self.actions.pop(0) if self.actions else _finish_action("fake llm: no scripted action")
+        tool_names = {t.get("name") for t in tools}
+        if "read_page" not in tool_names and "click" not in tool_names:
+            return _finish_action("fake llm: no exploration tools")
+        last_tool = (history[-1].get("tool") or history[-1].get("name")) if history else ""
+        if last_tool != "read_page" and "read_page" in tool_names:
+            return {"name": "read_page", "args": {}, "reason": "Read page content in offline fake mode."}
+        links = re.findall(r'\[ref=([A-Za-z0-9_-]+)\][^\n]*(?:listings/l\d\d|product/L\d\d)', observation, re.I)
+        if links and len(history) < 6 and "click" in tool_names:
+            return {"name": "click", "args": {"ref": links[0]}, "reason": "Navigate to listing."}
+        return _finish_action("fake llm: offline exploration finished")
 
 
 def get_llm() -> "LLM":  # noqa: F821

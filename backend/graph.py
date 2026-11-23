@@ -148,19 +148,20 @@ class GraphBuilder:
         self,
         listing_nid: str,
         recall_nid: str,
-        tier: Tier,
+        tier: Tier | str,
         reasons: list,
         evidence_ids: list[str],
     ) -> str:
         """Add a MATCHES edge. Raises ValueError if evidence_ids is empty."""
+        tier_val = tier.value if hasattr(tier, "value") else str(tier)
         return self._add_edge(
             listing_nid,
             recall_nid,
             EdgeKind.MATCHES,
             evidence_ids,
             properties={
-                "tier": tier.value,
-                "reasons": [r.value if hasattr(r, "value") else r for r in reasons],
+                "tier": tier_val,
+                "reasons": [r.value if hasattr(r, "value") else str(r) for r in reasons],
             },
         )
 

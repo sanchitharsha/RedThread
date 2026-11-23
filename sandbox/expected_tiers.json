@@ -1,6 +1,6 @@
 {
   "scope_mode": "all_units",
-  "source": "PLACEHOLDER",
+  "source": "REAL (cpsc_sample.json)",
   "expected": {
     "L01": "CONFIRMED",
     "L02": "CONFIRMED",

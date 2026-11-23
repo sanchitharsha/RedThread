@@ -276,16 +276,18 @@ async def run_investigation(
                 for ev in result.evidence:
                     store.save_evidence(run_id, ev)
 
+                tier_val = result.tier.value if hasattr(result.tier, "value") else str(result.tier)
+                reasons_val = [r.value if hasattr(r, "value") else str(r) for r in result.reasons]
                 await _emit(EventType.MATCH_RESULT.value, {
                     "listing_id": result.listing_id,
-                    "recall_number": result.recall_number,
-                    "tier": result.tier.value,
-                    "reasons": [r.value for r in result.reasons],
+                    "recall_number": result.recall_number or getattr(result, "recall_id", ""),
+                    "tier": tier_val,
+                    "reasons": reasons_val,
                 })
 
                 # Update graph
                 listing_nid = graph_builder.add_listing(listing)
-                evidence_ids = [ev.evidence_id for ev in result.evidence]
+                evidence_ids = [ev.id or ev.evidence_id for ev in result.evidence]
                 if evidence_ids:
                     graph_builder.add_matches(
                         listing_nid, recall_nid, result.tier, result.reasons, evidence_ids
