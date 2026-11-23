@@ -1,0 +1,12 @@
+{
+  "_note": "PLACEHOLDER values until M2 saves fixtures/cpsc_sample.json; build.py then prefers the real brand/models/GTINs from that file. The GTIN below is only the standard GS1 test UPC used in M2's unit tests.",
+  "source": "PLACEHOLDER",
+  "shop_name": "Marlowe & Finch Home Store",
+  "brand": "PLACEHOLDER-BRAND",
+  "product_name": "PLACEHOLDER Product",
+  "models": ["MODEL-AAA"],
+  "gtins": ["036000291452"],
+  "manufacture_date_in_range": "2023-05-14",
+  "manufacture_date_outside": "2025-02-03",
+  "scope_mode": "all_units"
+}

@@ -1,0 +1,143 @@
+[
+  {
+    "RecallID": 10720,
+    "RecallNumber": "26419",
+    "RecallDate": "2026-04-16T00:00:00",
+    "Description": "This recall involves Fisher & Paykel 30, 36 and 48-inch stainless steel, free-standing or self-contained gas ranges (RGV3 models). The gas ranges come in natural gas or liquified petroleum gas. The recalled models have a serial number starting with EEV, ERV, EAV, EYV, EUV, ELV or RFV. The model and serial numbers are printed on the rating plate located on either the back of the product or behind the front kick strip. The recalled gas ranges include: Recalled Model Number Serial Number Date Code UPC Code RGV3-305-N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843828494 RGV3-305-L EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843828500 RGV3-366-N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843820023 RGV3-366-L EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843820030 RGV3-304-N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843820047 RGV3-304-L EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843820054 RGV3-486GD-N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843823833 RGV3-486GD-L EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843823840 RGV3-488N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843829736 RGV3-488L EEVxxxxxx to EKVxxxxxx May 25 to Oct 25 822843829743 RGV3-485GD-N EEVxxxxxx to EAVxxxxxx May 25 to Aug 25 822843829750 RGV3-485GD-L EEVxxxxxx to ELVxxxxxx May 25 to Dec 25 822843829767",
+    "URL": "https://www.cpsc.gov/Recalls/2026/Free-Standing-Professional-Gas-Ranges-Recalled-Due-to-Risk-of-Burn-Hazard-Manufactured-by-Fisher-and-Paykel",
+    "Title": "Free-Standing Professional Gas Ranges Recalled Due to Risk of Burn Hazard; Manufactured by Fisher & Paykel",
+    "ConsumerContact": "Fisher & Paykel toll-free at 866-936-7327 from 8 a.m. to 8 p.m. ET Monday through Friday, email at techphotos@fisherpaykel.com, with the title \"Ignitor Inspection\" or online at https://support.fisherpaykel.com/s/product-recall/professional-ranges or fisherpaykel.com and click on \"Support\" and then \"Product Recall\" for more information.",
+    "LastPublishDate": "2026-04-17T00:00:00",
+    "Products": [
+      {
+        "Name": "Fisher & Paykel Gas Ranges",
+        "Description": "",
+        "Model": "",
+        "Type": "",
+        "CategoryID": "",
+        "NumberOfUnits": "About 433 (In addition, about 70 were sold in Canada)"
+      }
+    ],
+    "Inconjunctions": [
+      {
+        "URL": "https://recalls-rappels.canada.ca/en/alert-recall/fisher-paykel-branded-30-36-48-freestanding-professional-gas-ranges-gas-oven-recalled"
+      }
+    ],
+    "Images": [
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture7_9.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-304-N-RGV3-304-L"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture8_7.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-305-N-RGV3-305-L"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture9_7.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-366-N-RGV3-366-L"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture10_9.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-485-GD-N-RGV3-485-GD-L"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture11_10.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-486GD-L-RGV3-486GD-N"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture12_7.jpg",
+        "Caption": "Recalled Fisher & Paykel Range Model RGV3-488-N-RGV3-488-L"
+      },
+      {
+        "URL": "https://www.cpsc.gov/s3fs-public/Picture13_5.png",
+        "Caption": "Recalled Model number and Serial Number on Rating Plate"
+      }
+    ],
+    "Injuries": [
+      {
+        "Name": "The firm has received 18 reports of gas ranges with delayed ignition and one report of a minor burn injury."
+      }
+    ],
+    "Manufacturers": [
+      {
+        "Name": "Fisher & Paykel Appliances (Thailand) Co., Ltd, of Thailand",
+        "CompanyID": ""
+      }
+    ],
+    "Retailers": [
+      {
+        "Name": "Factory Builder Stores, Albert Lee Inc and other appliance retail stores nationwide from June 2025 through March 2026 for between $6,200 and $14,000.",
+        "CompanyID": ""
+      }
+    ],
+    "Importers": [],
+    "Distributors": [],
+    "SoldAtLabel": null,
+    "ManufacturerCountries": [
+      {
+        "Country": "Thailand"
+      }
+    ],
+    "ProductUPCs": [
+      {
+        "UPC": "822843828494"
+      },
+      {
+        "UPC": "822843828500"
+      },
+      {
+        "UPC": "822843820030"
+      },
+      {
+        "UPC": "822843820047"
+      },
+      {
+        "UPC": "822843820054"
+      },
+      {
+        "UPC": "822843823833"
+      },
+      {
+        "UPC": "822843823840"
+      },
+      {
+        "UPC": "822843829736"
+      },
+      {
+        "UPC": "822843829743"
+      },
+      {
+        "UPC": "822843829750"
+      },
+      {
+        "UPC": "822843829767"
+      },
+      {
+        "UPC": "191127003606"
+      },
+      {
+        "UPC": "191127003613"
+      },
+      {
+        "UPC": "191127003804"
+      }
+    ],
+    "Hazards": [
+      {
+        "Name": "The ovens in the ranges can experience a delayed ignition, causing gas to accumulate and the oven door to open from combustion, posing a burn hazard to users.",
+        "HazardType": "",
+        "HazardTypeID": ""
+      }
+    ],
+    "Remedies": [
+      {
+        "Name": "Consumers should stop using the ovens in the recalled gas ranges immediately and contact Fisher & Paykel for a free inspection and repair. Fisher & Paykel will provide professional in-home repair of the oven's ignitor. Consumers can continue to use the cooktop burners on the range."
+      }
+    ],
+    "RemedyOptions": [
+      {
+        "Option": "Repair"
+      }
+    ]
+  }
+]

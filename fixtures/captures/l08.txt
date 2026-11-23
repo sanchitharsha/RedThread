@@ -1,0 +1,14 @@
+Marlowe & Finch Home Store
+PLACEHOLDER-BRAND PLACEHOLDER Product Multi-Pack
+Sold by Redwood Traders
+$75.99
+Overview
+Variants
+Built for everyday use, with a simple setup and a two-year limited warranty. Ships from our regional warehouse in three to five business days.
+Brand: PLACEHOLDER-BRAND
+Variants
+Variant | Model | GTIN
+Single unit | MODEL-AAA | 036000291452
+Single unit, large | MODEL-AAB | Not listed
+Three-piece bundle | BND-8000 | Not listed
+Sandbox site, not a real shop. Created for Redthread testing.

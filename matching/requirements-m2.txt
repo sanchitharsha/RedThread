@@ -1,0 +1,9 @@
+# M2 dependencies (merge into the root requirements.txt owned by M3). Versions verified installable
+# in the build sandbox on 2026-11-22; Python 3.11+.
+pydantic>=2.14.4
+rapidfuzz>=3.14.6
+httpx>=0.28.1
+python-dotenv>=1.2.4
+openai>=3.57.0          # only needed when LLM_PROVIDER=openai
+google-genai>=3.6.1     # only needed when LLM_PROVIDER=gemini
+pytest>=9.2.0

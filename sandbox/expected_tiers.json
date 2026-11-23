@@ -1,0 +1,40 @@
+{
+  "scope_mode": "all_units",
+  "source": "PLACEHOLDER",
+  "expected": {
+    "L01": "CONFIRMED",
+    "L02": "CONFIRMED",
+    "L03": "CONFIRMED",
+    "L04": "CONFIRMED",
+    "L05": "RELATED",
+    "L06": "RELATED",
+    "L07": "RELATED",
+    "L08": "CONFIRMED (variant 1) + RELATED/NO_MATCH (others)",
+    "L09": "NO_MATCH",
+    "L10": "UNRESOLVED"
+  },
+  "all_units": {
+    "L01": "CONFIRMED",
+    "L02": "CONFIRMED",
+    "L03": "CONFIRMED",
+    "L04": "CONFIRMED",
+    "L05": "RELATED",
+    "L06": "RELATED",
+    "L07": "RELATED",
+    "L08": "CONFIRMED (variant 1) + RELATED/NO_MATCH (others)",
+    "L09": "NO_MATCH",
+    "L10": "UNRESOLVED"
+  },
+  "range": {
+    "L01": "CONFIRMED",
+    "L02": "LIKELY",
+    "L03": "CONFIRMED",
+    "L04": "RELATED",
+    "L05": "RELATED",
+    "L06": "RELATED",
+    "L07": "RELATED",
+    "L08": "CONFIRMED (variant 1) + RELATED/NO_MATCH (others)",
+    "L09": "NO_MATCH",
+    "L10": "UNRESOLVED"
+  }
+}
