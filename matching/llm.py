@@ -254,13 +254,11 @@ class FakeLLM(_Base):
 def get_llm() -> "LLM":  # noqa: F821
     try:
         from dotenv import load_dotenv, find_dotenv
-        found = find_dotenv()
-        print(f"DEBUG: find_dotenv in get_llm: {found!r}")
-        load_dotenv()
+        env_file = find_dotenv(usecwd=True)
+        if env_file:
+            load_dotenv(env_file)
     except ImportError:
         pass
-    import os
-    print(f"DEBUG get_llm: cwd={os.getcwd()}, LLM_PROVIDER={repr(os.getenv('LLM_PROVIDER'))}")
     provider = (os.getenv("LLM_PROVIDER") or "").strip().lower()
     if provider == "fake":
         log.warning("LLM_PROVIDER=fake: regex heuristic stand-in, NOT a real model. Test/demo only.")
