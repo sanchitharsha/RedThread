@@ -11,7 +11,7 @@ export function StartScreen({ onLive, onReplay, onDemo }) {
     setNote('')
     try {
       const list = await getReplays()
-      const first = Array.isArray(list) ? (list[0]?.id || list[0]) : null
+      const first = Array.isArray(list) ? (list[0]?.run_id || list[0]?.id || (typeof list[0] === 'string' ? list[0] : null)) : null
       if (!first) return setNote('No recorded run is available yet. Finish one live run first.')
       onReplay(recall, first)
     } catch (e) { setNote(`Could not reach the backend: ${e.message}`) }

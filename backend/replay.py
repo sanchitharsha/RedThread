@@ -59,6 +59,7 @@ def list_replays() -> list[dict]:
         meta = store.load_meta(run_id)
         events = store.load_events(run_id)
         result.append({
+            "id": run_id,
             "run_id": run_id,
             "event_count": len(events),
             "meta": meta or {},
