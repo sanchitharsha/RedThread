@@ -43,7 +43,9 @@ export default function App() {
     fetch('/api/replays')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) setReplays(data);
+        if (Array.isArray(data)) {
+          setReplays(data.map(r => typeof r === 'string' ? r : r.run_id));
+        }
       })
       .catch(() => {});
   }, []);
