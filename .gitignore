@@ -13,3 +13,5 @@ build/
 venv/
 *.db
 *.sqlite3
+frontend/dist/
+frontend/node_modules/
