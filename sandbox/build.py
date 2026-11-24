@@ -53,7 +53,7 @@ def load_config() -> dict:
 
 
 def _from_cpsc(path: Path) -> dict:
-    """Best effort: accepts a RecallRecord-shaped dict or a raw CPSC list (field names must be verified with M2)."""
+    """Read the real CPSC record saved by M2 (field names verified on recall 26419) or a RecallRecord-shaped dict."""
     try:
         data = json.loads(path.read_text())
     except Exception as exc:  # noqa: BLE001
@@ -62,22 +62,24 @@ def _from_cpsc(path: Path) -> dict:
     rec = data[0] if isinstance(data, list) and data else data
     if not isinstance(rec, dict):
         return {}
-    out: dict = {}
     if "models" in rec and "brand" in rec:                      # RecallRecord shape
-        out = {"brand": rec.get("brand"), "product_name": rec.get("title"),
-               "models": list(rec.get("models") or []), "gtins": list(rec.get("gtins") or [])}
-    else:                                                        # raw CPSC shape (assumed field names)
-        prods = rec.get("Products") or []
-        models: list[str] = []
-        for p in prods:
-            for m in re.split(r"[;,]|\band\b", str(p.get("Model") or "")):
-                if m.strip():
-                    models.append(m.strip())
-        mans = rec.get("Manufacturers") or []
-        out = {"brand": (mans[0].get("Name") if mans else None),
-               "product_name": (prods[0].get("Name") if prods else rec.get("Title")),
-               "models": models,
-               "gtins": [re.sub(r"\D", "", str(u.get("UPC", ""))) for u in (rec.get("UPCs") or [])]}
+        return {k: v for k, v in {"brand": rec.get("brand"), "models": list(rec.get("models") or []),
+                                  "gtins": list(rec.get("gtins") or [])}.items() if v}
+    desc = re.sub(r"\s+", " ", str(rec.get("Description") or ""))
+    # The API leaves Products[].Model empty; the models live in the description table
+    # ("RGV3-305-N EEVxxxxxx to RFVxxxxxx May 25 to Jan 26 822843828494"): pair each model with the UPC after it.
+    pairs = re.findall(r"\b([A-Z]{2,}\d*-\d[0-9A-Z-]*)\b.{0,80}?\b(\d{12})\b", desc)
+    models, pair_gtin = [], {}
+    for m, g in pairs:
+        if m not in pair_gtin:
+            models.append(m)
+            pair_gtin[m] = g
+    title = str(rec.get("Title") or "")
+    m = re.search(r"[Mm]anufactured by (.+?)\s*$", title)
+    brand = m.group(1).replace(" and ", " & ") if m else None
+    upcs = [re.sub(r"\D", "", str(u.get("UPC", ""))) for u in (rec.get("ProductUPCs") or [])]
+    out = {"brand": brand, "models": models, "gtins": upcs or list(pair_gtin.values()),
+           "primary_gtin": pair_gtin.get(models[0]) if models else None, "recall_number": rec.get("RecallNumber")}
     return {k: v for k, v in out.items() if v}
 
 
@@ -87,22 +89,24 @@ def canon(s: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", s.upper())
 
 
-def sibling(model: str) -> str:
-    """Same model but the last alphanumeric character differs by one."""
-    chars = list(model)
-    for i in range(len(chars) - 1, -1, -1):
-        c = chars[i]
-        if c.isdigit():
-            chars[i] = str((int(c) + 1) % 10)
-            return "".join(chars)
-        if c.isalpha():
-            chars[i] = "A" if c.upper() == "Z" else chr(ord(c.upper()) + 1)
-            return "".join(chars)
-    return model + "1"
+def sibling(model: str, avoid=()) -> str:
+    """Same model but the last alphanumeric character differs; never another recalled model."""
+    taken = {canon(a) for a in avoid} | {canon(model)}
+    i = max(i for i, c in enumerate(model) if c.isalnum()) if any(c.isalnum() for c in model) else None
+    if i is None:
+        return model + "1"
+    pool = "0123456789" if model[i].isdigit() else "XYZWVUTSRQPMKJHGFEDCBA"
+    for c in pool:
+        cand = model[:i] + c + model[i + 1:]
+        if canon(cand) not in taken:
+            return cand
+    return model + "X"
 
 
 def loose(model: str) -> str:
-    """Same model written differently: lowercase with spaced hyphens, e.g. 'kx - 200'."""
+    """Same model written differently: lowercase with spaced hyphens, e.g. 'rgv3 - 305 - n'."""
+    if "-" in model:
+        return " - ".join(p.lower() for p in model.split("-"))
     parts = re.findall(r"[A-Za-z]+|[0-9]+", model)
     if len(parts) < 2:
         mid = max(1, len(model) // 2)
@@ -118,9 +122,10 @@ def spaced_gtin(g: str) -> str:
 
 def make_listings(cfg: dict) -> list[dict]:
     brand, name = cfg["brand"], cfg["product_name"]
-    model, gtin = cfg["models"][0], (cfg["gtins"] or ["036000291452"])[0]
+    model = cfg["models"][0]
+    gtin = cfg.get("primary_gtin") or (cfg["gtins"] or ["036000291452"])[0]
     d_in, d_out = cfg["manufacture_date_in_range"], cfg["manufacture_date_outside"]
-    sib = sibling(model)
+    sib = sibling(model, cfg["models"])
     other = "ALT-6006" if canon("ALT-6006") != canon(model) else "ALT-6007"
     bundle = "BND-8000" if canon("BND-8000") != canon(model) else "BND-8001"
     copy = ("Built for everyday use, with a simple setup and a two-year limited warranty. "

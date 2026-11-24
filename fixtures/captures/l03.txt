@@ -1,11 +1,11 @@
 Marlowe & Finch Home Store
-PLACEHOLDER-BRAND PLACEHOLDER Product - White
+Fisher & Paykel Freestanding Professional Gas Range - White
 Sold by Redwood Traders
 $40.99
 Built for everyday use, with a simple setup and a two-year limited warranty. Ships from our regional warehouse in three to five business days.
 Details
-Brand: PLACEHOLDER-BRAND
-Model: model - aaa
-GTIN: 0 36000 29145 2
-Manufactured: 2023-05-14
+Brand: Fisher & Paykel
+Model: rgv3 - 305 - n
+GTIN: 8 22843 82849 4
+Manufactured: August 2025
 Sandbox site, not a real shop. Created for Redthread testing.

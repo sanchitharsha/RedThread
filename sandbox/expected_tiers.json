@@ -1,11 +1,11 @@
 {
-  "scope_mode": "all_units",
+  "scope_mode": "range",
   "source": "REAL (cpsc_sample.json)",
   "expected": {
     "L01": "CONFIRMED",
-    "L02": "CONFIRMED",
+    "L02": "LIKELY",
     "L03": "CONFIRMED",
-    "L04": "CONFIRMED",
+    "L04": "RELATED",
     "L05": "RELATED",
     "L06": "RELATED",
     "L07": "RELATED",

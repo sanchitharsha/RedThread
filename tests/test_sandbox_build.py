@@ -64,6 +64,6 @@ def test_lookalike_identifiers():
     ls = {l["id"]: l for l in build.make_listings(cfg)}
     m = cfg["models"][0]
     assert build.canon(build.loose(m)) == build.canon(m)         # L03 canonicalises to the recalled model
-    assert build.canon(build.sibling(m)) != build.canon(m)       # L05 differs
+    assert build.canon(build.sibling(m, cfg["models"])) not in {build.canon(a) for a in cfg["models"]}  # L05 is not a recalled model
     assert ls["L07"]["brand"] != cfg["brand"] and ls["L07"]["rows"][1][1] == m
     assert dict(ls["L06"]["rows"])["Model"] not in cfg["models"]
