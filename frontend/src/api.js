@@ -18,3 +18,19 @@ export const getEvidence = (id) => j(`${API}/api/evidence/${encodeURIComponent(i
 export const exportUrl = (id) => `${API}/api/investigations/${id}/export.json`
 export const eventsUrl = (id) => `${API}/api/investigations/${id}/events`
 export const getJson = (path) => j(path)
+
+export const narrateReport = async (id) => {
+  const res = await fetch(`${API}/api/investigations/${id}/narrate`, { method: 'POST' })
+  const contentType = res.headers.get('content-type') || ''
+  if (contentType.includes('audio/mpeg')) {
+    const blob = await res.blob()
+    return { audioUrl: URL.createObjectURL(blob), isAudio: true }
+  }
+  const data = await res.json()
+  return { ...data, isAudio: false }
+}
+
+export const archiveReport = (id) =>
+  j(`${API}/api/investigations/${id}/archive`, { method: 'POST' })
+
+export const getSponsorStatus = () => j(`${API}/api/sponsors/status`)

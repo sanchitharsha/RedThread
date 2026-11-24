@@ -59,6 +59,20 @@ USE_STUBS=1 python -m uvicorn backend.main:app --port 8000 --reload
 
 There is **no "safe" tier**. "No match" is not a statement about product safety.
 
+## Sponsor Prize Integrations
+
+### 🎙️ ElevenLabs — Voice Narration Briefing
+Redthread generates an executive audio briefing of every exposure report using **ElevenLabs Text-to-Speech**.
+- **Endpoint**: `POST /api/investigations/{id}/narrate`
+- **Frontend**: One-click "🎙️ Voice Briefing" button in the Exposure Report toolbar with real-time playback.
+- **Graceful fallback**: When offline or if an API key is not configured, generates a structured briefing script preview.
+
+### ☁️ AWS S3 — Investigation Evidence Archival
+Completed investigation runs (events stream, knowledge graph, exposure report, verbatim quotes, and page captures) are packaged and securely archived into **Amazon S3**.
+- **Endpoint**: `POST /api/investigations/{id}/archive`
+- **Frontend**: "☁️ Archive to AWS" button displays archival manifests and S3 object keys.
+- **Graceful fallback**: Generates a reproducible offline archival manifest if AWS credentials are not set.
+
 ## Environment Variables
 
 | Variable | Description | Default |
@@ -71,6 +85,12 @@ There is **no "safe" tier**. "No match" is not a statement about product safety.
 | `OFFLINE` | `1` to skip network calls | `0` |
 | `SHOP_URL` | Sandbox shop URL | `http://localhost:8001` |
 | `ALLOW_DOMAINS` | Comma-separated domain allowlist | `localhost` |
+| `ELEVENLABS_API_KEY` | ElevenLabs API key for voice narration | — |
+| `ELEVENLABS_VOICE_ID` | Voice ID (defaults to Rachel) | `21m00Tcm4TlvDq8ikWAM` |
+| `AWS_ACCESS_KEY_ID` | AWS IAM access key for S3 archival | — |
+| `AWS_SECRET_ACCESS_KEY` | AWS IAM secret key | — |
+| `AWS_REGION` | AWS region | `us-east-1` |
+| `S3_BUCKET` | AWS S3 bucket for artifact archival | — |
 
 ## API Endpoints
 
@@ -84,6 +104,9 @@ There is **no "safe" tier**. "No match" is not a statement about product safety.
 | GET | `/api/investigations/{id}/export.json` | Full export |
 | GET | `/api/replays` | List recorded runs |
 | GET | `/api/health` | Health check |
+| GET | `/api/sponsors/status` | Sponsor integrations status (ElevenLabs & AWS) |
+| POST | `/api/investigations/{id}/narrate` | ElevenLabs report audio briefing |
+| POST | `/api/investigations/{id}/archive` | AWS S3 investigation artifact archival |
 
 ## Make Targets
 

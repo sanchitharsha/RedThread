@@ -26,13 +26,14 @@ load_dotenv()
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sse_starlette.sse import EventSourceResponse
 
 from contracts.models import Event, EventType
 from backend import store
+from backend import elevenlabs_tts, aws_archive
 from backend.orchestrator import run_investigation
 from backend.replay import stream_replay, list_replays
 
@@ -262,3 +263,86 @@ async def export_investigation(run_id: str):
 @app.get("/api/replays")
 async def replays():
     return list_replays()
+
+
+# ---- Sponsor Prize Integrations: ElevenLabs & AWS ----
+
+@app.get("/api/sponsors/status")
+async def sponsors_status():
+    """Return status of ElevenLabs and AWS sponsor integrations."""
+    return {
+        "elevenlabs": {
+            "configured": elevenlabs_tts.is_configured(),
+            "description": "ElevenLabs voice narration briefing for exposure reports",
+        },
+        "aws": {
+            "configured": aws_archive.is_configured(),
+            "description": "AWS S3 evidence archival for investigation artifacts",
+        },
+    }
+
+
+@app.post("/api/investigations/{run_id}/narrate")
+async def narrate_investigation(run_id: str):
+    """
+    Generate voice narration of the report using ElevenLabs.
+    Returns MP3 audio if configured, or JSON fallback script if offline/unconfigured.
+    """
+    report = store.load_report(run_id)
+    if report is None:
+        raise HTTPException(404, "Report not found (investigation may still be running)")
+
+    if elevenlabs_tts.is_configured():
+        try:
+            audio_bytes = await elevenlabs_tts.narrate_report(report)
+            return Response(
+                content=audio_bytes,
+                media_type="audio/mpeg",
+                headers={"Content-Disposition": f'attachment; filename="redthread-{run_id}-briefing.mp3"'},
+            )
+        except Exception as exc:
+            script = await elevenlabs_tts.narrate_report_offline(report)
+            return JSONResponse(
+                {
+                    "fallback": True,
+                    "configured": True,
+                    "error": str(exc),
+                    "script": script,
+                },
+                status_code=200,
+            )
+    else:
+        script = await elevenlabs_tts.narrate_report_offline(report)
+        return JSONResponse(
+            {
+                "fallback": True,
+                "configured": False,
+                "message": "ELEVENLABS_API_KEY not configured. Previewing briefing script.",
+                "script": script,
+            },
+            status_code=200,
+        )
+
+
+@app.post("/api/investigations/{run_id}/archive")
+async def archive_investigation(run_id: str):
+    """
+    Archive investigation artifacts (events, graph, report, evidence) to AWS S3.
+    Returns the archive manifest.
+    """
+    if not store.run_exists(run_id):
+        raise HTTPException(404, "Run not found")
+
+    if aws_archive.is_configured():
+        try:
+            manifest = aws_archive.archive_run(run_id)
+            return JSONResponse(manifest)
+        except Exception as exc:
+            manifest = aws_archive.archive_run_offline(run_id)
+            manifest["error"] = str(exc)
+            return JSONResponse(manifest, status_code=200)
+    else:
+        manifest = aws_archive.archive_run_offline(run_id)
+        manifest["message"] = "AWS credentials not configured. Generated offline archival manifest."
+        return JSONResponse(manifest, status_code=200)
+
